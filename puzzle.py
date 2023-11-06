@@ -7,7 +7,14 @@ def validate_rows(board: list) -> bool:
  "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
     True
         '''
-    pass
+    if not isinstance(board, list):
+        return None
+    for rows in board:
+        for elem in rows:
+            if rows.count(elem) != 1 and elem.isdigit():
+                return False
+    return True
+    
 def validate_columns(board: list) -> bool:
     '''
     Return result of checking rows.
