@@ -39,7 +39,16 @@ def validate_colors(board: list) -> bool:
  "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
     True
     '''
-    pass
+    if not isinstance(board, list):
+        return None
+    new_board = []
+    for i in range(9):
+        new_elem = ''
+        for row in range(9-i):
+            new_elem += board[row][i]
+        new_elem += board[-(i+1)][i+1:]
+        new_board.append(new_elem)
+    return validate_rows(new_board)
 
 def validate_board(board: list) -> bool:
     '''
