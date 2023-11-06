@@ -33,5 +33,7 @@ def validate_board(board: list) -> bool:
  "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
     False
     '''
-    pass
+    if not isinstance(board, list):
+        return None
+    return validate_rows(board) and validate_columns(board) and validate_colors(board)pass
   
